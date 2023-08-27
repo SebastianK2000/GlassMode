@@ -1,0 +1,86 @@
+:root {
+    --red: #ff0000;
+    --dark: #000000;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    background: var(--dark);
+    background: linear-gradient(to left top, var(--dark), var(--dark));
+    color: white;
+    font-family: 'Montserrat', sans-serif;
+    min-height: 100vh;
+    min-width: 100vw;
+    overflow: hidden;
+    padding: 64px;
+}
+
+.container {
+    max-width: 100%;
+    max-height: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    background-color: rgba(0, 0, 0, 0.756);
+    border-radius: 20px;
+    background: linear-gradient(to left top, rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0.25));
+    padding: 32px 92px;
+    position: relative;
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    overflow: auto;
+
+}
+
+h1 {
+    font-size: 48px;
+    margin: 96px;
+    text-align: center;
+    color: transparent;
+    background: linear-gradient(90deg,var(--red), rgba(2, 2, 2, 0.6));
+    -webkit-background-clip: text;
+}
+
+
+.gallery {
+    background: linear-gradient(60deg, 
+    rgba(255, 255, 255, 0.1),
+    rgba(255, 255, 255, 0.5)
+    );
+    border-radius: 20px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    list-style-type: none;
+    padding: 64px;
+}
+
+.thumbnail {
+    border: solid 3px rgba(255, 255, 255, 0.9);
+    border-radius: 15px;
+    box-shadow: 0 0 48px 2px rgba(0, 0, 0, 0.5);
+    cursor: pointer;
+    margin: 32px;
+    max-height: 200px;
+    max-width: 200px;
+    overflow: hidden;
+    transform: scale(1);
+    transition: transform 0.3s;
+}
+
+.thumbnail:hover {
+    transform: scale(1.2);
+}
+
+.thumbnail img {
+    height: 100%;
+    object-fit: cover;
+    width: 100%;
+}
