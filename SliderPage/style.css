@@ -1,58 +1,33 @@
-:root {
-    --red: #ff0000;
-    --dark: #000000;
-}
-
 * {
+    box-sizing: border-box;
     margin: 0;
     padding: 0;
-    box-sizing: border-box;
 }
 
 body {
+    background: linear-gradient(45deg, #ff0000, #000000);
+    color: #fff;
     display: flex;
-    justify-content: center;
     flex-direction: column;
-    background: var(--dark);
-    background: linear-gradient(to left top, var(--dark), var(--dark));
-    color: white;
-    font-family: 'Montserrat', sans-serif;
+    font-family: Helvetica, sans-serif;
+    justify-content: center;
     min-height: 100vh;
     min-width: 100vw;
-    overflow: hidden;
+    overflow-x: hidden;
     padding: 64px;
 }
 
-.container {
-    max-width: 100%;
-    max-height: 100%;
-    display: flex;
-    flex-wrap: wrap;
-    background-color: rgba(0, 0, 0, 0.756);
-    border-radius: 20px;
-    background: linear-gradient(to left top, rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0.25));
-    padding: 32px 92px;
-    position: relative;
-    backdrop-filter: blur(8px);
-    -webkit-backdrop-filter: blur(8px);
-    overflow: auto;
-
-}
-
 h1 {
-    font-size: 48px;
+    font-size: 96px;
     margin: 96px;
     text-align: center;
-    color: transparent;
-    background: linear-gradient(90deg,var(--red), rgba(2, 2, 2, 0.6));
-    -webkit-background-clip: text;
 }
 
-
 .gallery {
-    background: linear-gradient(60deg, 
-    rgba(255, 255, 255, 0.1),
-    rgba(255, 255, 255, 0.5)
+    background: linear-gradient(
+        60deg,
+        rgba(255, 255, 255, 0.1),
+        rgba(255, 255, 255, 0.5)
     );
     border-radius: 20px;
     display: flex;
@@ -69,7 +44,7 @@ h1 {
     cursor: pointer;
     margin: 32px;
     max-height: 200px;
-    max-width: 200px;
+    max-width: 300px;
     overflow: hidden;
     transform: scale(1);
     transition: transform 0.3s;
@@ -83,4 +58,97 @@ h1 {
     height: 100%;
     object-fit: cover;
     width: 100%;
+}
+
+.thumbnail img:focus,
+.thumbnail img:focus {
+    border: solid 5px rgb(78, 76, 226);
+}
+
+.popup {
+    align-content: center;
+    animation: fadeIn 0.3s;
+    background: rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(10px);
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    height: 100vh;
+    left: 0;
+    position: fixed;
+    top: 0;
+    width: 100vw;
+}
+
+.popup.hidden {
+    display: none;
+}
+
+.popup.fade-out {
+    animation: fadeOut 0.3s both;
+}
+
+.popup__img {
+    max-height: 80%;
+    max-width: 80%;
+}
+
+.popup__close {
+    background-color: transparent;
+    border: none;
+    color: #fff;
+    cursor: pointer;
+    font-size: 128px;
+    position: fixed;
+    right: 64px;
+    top: 64px;
+}
+
+.popup__arrow {
+    border: none;
+    border-radius: 50%;
+    cursor: pointer;
+    font-size: 128px;
+    height: 128px;
+    line-height: 128px;
+    position: absolute;
+    top: 50%;
+    width: 128px;
+}
+
+.popup__close,
+.popup__arrow {
+    opacity: 0.5;
+    transition: opacity 0.3s;
+}
+
+.popup__close:hover,
+.popup__arrow:hover {
+    opacity: 1;
+}
+
+.popup__arrow--left {
+    left: 5%;
+}
+
+.popup__arrow--right {
+    right: 5%;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes fadeOut {
+    from {
+        opacity: 1;
+    }
+    to {
+        opacity: 0;
+    }
 }
